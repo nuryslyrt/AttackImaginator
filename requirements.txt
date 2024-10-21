@@ -1,0 +1,4 @@
+argparse
+ollama
+bs4
+lxml
