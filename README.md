@@ -1,3 +1,25 @@
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/nuryslyrt/AttackImaginator/refs/heads/main/attackimaginator.png" alt="subfinder" width="500px">
+  <br>
+</h1>
+
+<h4 align="center">LLM Supported Attack Scenario Creator from Code Review</h4>
+
+
+<p align="center">
+<a href="https://github.com/nuryslyrt/AttackImaginator/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+<a href="https://x.com/nuryslyrt"><img src="https://img.shields.io/twitter/follow/nuryslyrt.svg?logo=twitter"></a>
+<a href="https://www.linkedin.com/in/nuryesilyurt"><img src="https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white&style=for-the-bad"></a>
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Install</a> •
+  <a href="#usage">Usage</a>
+</p>
+
+---
+
 # AttackImaginator
 
 Welcome to **AttackImaginator**—a project crafted entirely for educational purposes! Discover how you can leverage LLMs to enhance your day-to-day work quality and skills, instead of relying blindly on their output.
@@ -24,13 +46,28 @@ $ source .venv/bin/activate
 $ python3 -m pip install -r requirements.txt
 ```
 
-## Execution
+## Usage
 
 ```bash
-python3 attack_imaginator.py -t [FULL_PPATH_OF_THE_CODE_REPO_WILLBE_SCANNED] -m [THE_MODEL_THAT_DEPLOYED_ON_YOUR_OLLAMA]
+python3 attack_imaginator.py -t [FULL_PATH_OF_THE_CODE_REPO_WILL_BE_SCANNED] -m [THE_MODEL_THAT_DEPLOYED_ON_YOUR_OLLAMA]
 ```
+Check the scanned repo folder to find your outputs!
 
-PS: Check examples folder to see what kind of output you may see! 
+To see what they may look like, check the [example outputs](https://github.com/nuryslyrt/AttackImaginator/tree/main/Examples) from some known vulnerable apps!
+
+![Example terminal](https://raw.githubusercontent.com/nuryslyrt/AttackImaginator/refs/heads/main/example_terminal_output.png)
+
+
+## Features
+
+**Automated Scanning:** Uses Semgrep to analyze your codebase with defined rule repositories. Semgrep is very powerful, lightweight and open source tool that I recommend everyone to create their own rules!
+
+**LLM-Powered Scenarios:** Employs LLMs to imagine potential attack vectors based on your code.
+
+**Educational Focus:** Aims to enhance your security testing skills in a fun and engaging way.
+
+
+
 
 ## Contribution
 
@@ -46,6 +83,6 @@ Here are some features you might contribute:
 
 ---
 
-Let's make security testing more imaginative and fun together!
+Let's make security testing more imaginative and fun together! 🚀
 
 -EOF
