@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,23 +23,18 @@ Detected input from a HTTPServletRequest going into a XPath evaluate or compile 
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/XPathQuery.java
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-String name=xPath.compile(xPression).evaluate(xDoc);
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 
 - Critical, 
-    This finding presents a potential for XPath injection attacks, which can lead to unauthorized access to sensitive information in XML documents. If not properly sanitized, user input can be manipulated and used to execute malicious XPath expressions.
+This finding presents a potential for XPath injection attacks, which can lead to unauthorized access to sensitive information in XML documents. If not properly sanitized, user input can be manipulated and used to execute malicious XPath expressions.
 
 ### Explanation
 

@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,18 +23,13 @@ DOCTYPE declarations are enabled for this DocumentBuilderFactory. This is vulner
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/xxe.java
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-DocumentBuilder builder = factory.newDocumentBuilder();
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 
@@ -48,12 +42,10 @@ The vulnerability exists because the DocumentBuilderFactory is enabled with DOCT
 ### Steps to Reproduce
 
 - Set the feature "http://apache.org/xml/features/disallow-doctype-decl" to true in the code.
-
 ```java
 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 ```
-
 - Alternatively, allow DOCTYPE declarations and only prohibit external entities declarations by setting the features 
 "http://xml.org/sax/features/external-general-entities" and "http://xml.org/sax/features/external-parameter-entities" to false in the code.
 
@@ -67,5 +59,6 @@ factory.setFeature("http://xml.org/sax/features/external-parameter-entities", fa
 
 - A possible Proof-of-Concept (PoC) exploit for this scenario can be demonstrated using the following command:
 ```bash
-java -jar JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/xxe.java```
+java -jar JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/xxe.java
+```
 Replace `` with a malicious DOCTYPE declaration, such as `

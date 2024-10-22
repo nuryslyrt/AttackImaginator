@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,37 +23,13 @@ Application redirects to a destination URL specified by a user-supplied paramete
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/Open.java
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```java
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-         try {
-            PrintWriter out = response.getWriter();
-           String url=request.getParameter("url");
-           if(url!=null)
-           {
-              response.sendRedirect(url);
-           }
-           else
-           {
-               out.print("Missing url parameter");
-           }
-        }
-         catch(Exception e)
-         {
-             
-         }
-    }
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 
@@ -64,8 +39,10 @@ Application redirects to a destination URL specified by a user-supplied paramete
 ### Explanation
 
 The code in question redirects to a destination URL specified by a user-supplied parameter that is not validated. This means that if an attacker can manipulate the value of the "url" parameter, they could redirect users to any website or location they desire, potentially leading to malicious activities such as phishing or malware injection.
- An example of this vulnerability is demonstrated in a scenario where an attacker sends a specially crafted request with a malicious URL to the application. For instance, if the application's redirect functionality is exploited by an attacker, it could lead to the execution of arbitrary code on the server-side. This makes the application vulnerable to remote code execution attacks.
- Another example is that this vulnerability can be used in cross-site scripting (XSS) attacks where an attacker injects malicious scripts into the URL and a user clicks on it. The malicious script will run on the client's browser, potentially leading to unauthorized access of sensitive data or actions on the user's system.
+
+An example of this vulnerability is demonstrated in a scenario where an attacker sends a specially crafted request with a malicious URL to the application. For instance, if the application's redirect functionality is exploited by an attacker, it could lead to the execution of arbitrary code on the server-side. This makes the application vulnerable to remote code execution attacks.
+
+Another example is that this vulnerability can be used in cross-site scripting (XSS) attacks where an attacker injects malicious scripts into the URL and a user clicks on it. The malicious script will run on the client's browser, potentially leading to unauthorized access of sensitive data or actions on the user's system.
 
 ### Steps to Reproduce
 

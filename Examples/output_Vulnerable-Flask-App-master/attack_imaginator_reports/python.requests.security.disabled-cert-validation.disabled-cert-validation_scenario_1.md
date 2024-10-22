@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,19 +23,13 @@ Certificate verification has been explicitly disabled. This permits insecure con
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/Vulnerable-Flask-App-master/tests/e2e_zap.py
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-    search_customer_username = requests.post(
-        target_url + '/search', json=search, proxies=proxies, headers=auth_header, verify=False)
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 

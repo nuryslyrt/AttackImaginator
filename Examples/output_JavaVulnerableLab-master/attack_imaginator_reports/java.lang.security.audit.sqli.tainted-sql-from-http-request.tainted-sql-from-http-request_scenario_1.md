@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,19 +23,13 @@ Detected input from a HTTPServletRequest going into a SQL sink or statement. Thi
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/UsernameCheck.java
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-Statement stmt = con.createStatement();  
-rs=stmt.executeQuery("select * from users where username='"+user+"'");
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 

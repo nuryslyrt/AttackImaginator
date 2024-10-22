@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,18 +23,13 @@ Detected MD5 hash algorithm which is considered insecure. MD5 is not collision r
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/model/HashMe.java
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-MessageDigest md = MessageDigest.getInstance("MD5");
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 
@@ -55,6 +49,7 @@ The use of MD5 hash algorithm in the provided code is a significant security ris
 ### Proof of Concept (PoC)
 
 To demonstrate the impact of using MD5, you can use a Python script that calculates the MD5 hash of a given string and then compares it with the original hash value:
+
 ```python
 import hashlib
 

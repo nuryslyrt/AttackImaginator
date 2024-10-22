@@ -105,6 +105,8 @@ class ScenarioCreator:
         print(scenario)
         return scenario
     
+    
+    
     def scenario_reporter(self):
         FINDING_TITLE = self.finding['check_id']
         FINDING_SEVERITY = self.finding['severity']
@@ -112,9 +114,149 @@ class ScenarioCreator:
         CODE_PATH = self.finding['path']
         CODE_SNIPPET = self.finding['lines']
 
-        # Parse the content
-        scenario = ScenarioCreator.scenario_pooper(self)
-        soup = BeautifulSoup(scenario, 'xml')
+        # Parse the content for multiple scenarios
+        scenarios = ScenarioCreator.scenario_pooper(self)
+        soup_parsed = BeautifulSoup(scenarios, 'xml')
+        soups = soup_parsed.find_all('scenario')
+
+        # Check if there are any scenarios found, if not provide a fallback
+        if not soups:
+            print(f"No scenarios found for finding: {FINDING_TITLE}")
+            return
+
+        for index, soup in enumerate(soups):
+            # Extract different sections for each scenario
+            impact = soup.find('impact').get_text(strip=True) if soup.find('impact') else 'None'
+            explanation = soup.find('explanation').get_text(strip=True) if soup.find('explanation') else 'None'
+            steps = soup.find('steps').get_text(strip=True) if soup.find('steps') else 'None'
+            poc = soup.find('poc').get_text(strip=True) if soup.find('poc') else 'None'
+
+            # Define Markdown template for each scenario
+            md_template = f'''
+# Attack Imaginator Report - Scenario {index + 1}
+
+Hi dear security enthusiast! (^^,)
+I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
+Hope, they'll help you to test your systems and increase their security bar! 
+Don't forget, I don't accept any responsibility in your actions.
+Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
+
+## CODE REVIEW FINDING DETAILS:
+
+**FINDING TITLE:**  
+
+{FINDING_TITLE}
+
+### FINDING SEVERITY:
+
+{ FINDING_SEVERITY }
+
+### FINDING EXPLANATION:
+
+{ FINDING_EXPLANATION }
+
+### VULNERABLE CODE PATH:
+
+{ CODE_PATH }
+
+
+### VULNERABLE CODE SNIPPET:
+
+
+## ATTACK SCENARIO DETAILS:
+
+### Impact
+
+{ impact }
+
+### Explanation
+
+{ explanation }
+
+### Steps to Reproduce
+
+{ steps }
+
+### Proof of Concept (PoC)
+
+{ poc }
+'''
+            os.makedirs(f"{self.target_directory}/attack_imaginator_reports", exist_ok=True)
+
+            # Write the Markdown to a file for each scenario
+            report_filename = f"{self.target_directory}/attack_imaginator_reports/{FINDING_TITLE}_scenario_{index + 1}.md"
+            with open(report_filename, "w") as report_file:
+                report_file.write(md_template)
+
+            print(f"Markdown report generated: {report_filename}")
+    
+
+        for index, soup in enumerate(soups):
+            # Extract different sections for each scenario
+            impact = soup.find('impact').get_text(strip=True) if soup.find('impact') else 'None'
+            explanation = soup.find('explanation').get_text(strip=True) if soup.find('explanation') else 'None'
+            steps = soup.find('steps').get_text(strip=True) if soup.find('steps') else 'None'
+            poc = soup.find('poc').get_text(strip=True) if soup.find('poc') else 'None'
+
+            # Define Markdown template for each scenario
+            md_template = f'''
+# Attack Imaginator Report - Scenario {index + 1}
+
+Hi dear security enthusiast! (^^,)
+I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
+Hope, they'll help you to test your systems and increase their security bar! 
+Don't forget, I don't accept any responsibility in your actions.
+Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
+
+## CODE REVIEW FINDING DETAILS:
+
+**FINDING TITLE:**  
+
+{FINDING_TITLE}
+
+### FINDING SEVERITY:
+
+{ FINDING_SEVERITY }
+
+### FINDING EXPLANATION:
+
+{ FINDING_EXPLANATION }
+
+### VULNERABLE CODE PATH:
+
+{ CODE_PATH }
+
+
+### VULNERABLE CODE SNIPPET:
+
+
+## ATTACK SCENARIO DETAILS:
+
+### Impact
+
+{ impact }
+
+### Explanation
+
+{ explanation }
+
+### Steps to Reproduce
+
+{ steps }
+
+### Proof of Concept (PoC)
+
+{ poc }
+'''
+            os.makedirs(f"{self.target_directory}/attack_imaginator_reports", exist_ok=True)
+
+            # Write the Markdown to a file for each scenario
+            report_filename = f"{self.target_directory}/attack_imaginator_reports/{FINDING_TITLE}_scenario_{index + 1}.md"
+            with open(report_filename, "w") as report_file:
+                report_file.write(md_template)
+
+            print(f"Markdown report generated: {report_filename}")
+    
         # Extract different sections
         impact = soup.find('impact').get_text(strip=True) if soup.find('impact') else 'None'
         explanation = soup.find('explanation').get_text(strip=True) if soup.find('explanation') else 'None'

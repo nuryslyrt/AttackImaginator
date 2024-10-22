@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,18 +23,13 @@ Hardcoded JWT secret or private key is used. This is a Insufficiently Protected 
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/Vulnerable-Flask-App-master/app/app.py
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-            auth_token = jwt.encode({'user': username, 'exp': get_exp_date(), 'nbf': datetime.datetime.utcnow(), 'iss': 'we45', 'iat': datetime.datetime.utcnow()}, app.config['SECRET_KEY_HMAC'], algorithm='HS256')
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 

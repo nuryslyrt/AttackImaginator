@@ -1,12 +1,11 @@
 
-# Attack Imaginator Report
+# Attack Imaginator Report - Scenario 1
 
 Hi dear security enthusiast! (^^,)
 I'm your fellow attack imaginator. I'll provide possible hacking scenarios over your code review findings.
 Hope, they'll help you to test your systems and increase their security bar! 
 Don't forget, I don't accept any responsibility in your actions.
 Please examine the scenarios that I'll create properly for not causing any harm to your test scope.
-
 
 ## CODE REVIEW FINDING DETAILS:
 
@@ -24,18 +23,13 @@ Detected a potential path traversal. A malicious actor could control the locatio
 
 ### VULNERABLE CODE PATH:
 
-```
 /Users/USERNAME/Downloads/JavaVulnerableLab-master/src/main/java/org/cysecurity/cspf/jvl/controller/AddPage.java
-```
+
 
 ### VULNERABLE CODE SNIPPET:
 
-```
-            File f=new File(filePath);
-```
 
 ## ATTACK SCENARIO DETAILS:
-
 
 ### Impact
 
@@ -61,7 +55,6 @@ Here are some examples of directory traversal attacks:
 ### Proof of Concept (PoC)
 
 To demonstrate this vulnerability, you can use the following Java code:
-
 ```java
                 File f = new File("/etc/passwd");
                 System.out.println(f.exists());
