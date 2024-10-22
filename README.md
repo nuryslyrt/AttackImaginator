@@ -51,7 +51,7 @@ $ python3 -m pip install -r requirements.txt
 ## Usage
 
 ```bash
-python3 attack_imaginator.py -t [FULL_PATH_OF_THE_CODE_REPO_WILL_BE_SCANNED] -m [THE_MODEL_THAT_DEPLOYED_ON_YOUR_OLLAMA]
+$ python3 attack_imaginator.py -t [FULL_PATH_OF_THE_CODE_REPO_WILL_BE_SCANNED] -m [THE_MODEL_THAT_DEPLOYED_ON_YOUR_OLLAMA]
 ```
 Check the scanned repo folder to find your outputs!
 
