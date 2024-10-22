@@ -31,8 +31,7 @@ Certificate verification has been explicitly disabled. This permits insecure con
 ### VULNERABLE CODE SNIPPET:
 
 ```
-    search_customer_username = requests.post(
-        target_url + '/search', json=search, proxies=proxies, headers=auth_header, verify=False)
+search_customer_username = requests.post(target_url + '/search', json=search, proxies=proxies, headers=auth_header, verify=False)
 ```
 
 ## ATTACK SCENARIO DETAILS:
@@ -49,13 +48,14 @@ The code review finding indicates that certificate verification is disabled for 
 ### Steps to Reproduce
 
 1. An attacker can send a malicious certificate to the vulnerable server to establish a fake HTTPS connection.
-                    2. The server will accept the invalid certificate and allow the request to proceed.
-                    3. The attacker can then intercept or tamper with sensitive data being transmitted over the connection.
+2. The server will accept the invalid certificate and allow the request to proceed.
+3. The attacker can then intercept or tamper with sensitive data being transmitted over the connection.
 
 ### Proof of Concept (PoC)
 
 To demonstrate this vulnerability, an attacker could use the following Python script:
-                    ```python
+
+```python
 import requests
 
 target_url = "https://vulnerable-server.com"
@@ -70,4 +70,4 @@ search_customer_username = requests.post(
 
 print(search_customer_username.status_code)
 ```
-                    This script sends a POST request to the vulnerable server without verifying the SSL/TLS certificate, allowing an attacker to intercept or tamper with sensitive data.
+This script sends a POST request to the vulnerable server without verifying the SSL/TLS certificate, allowing an attacker to intercept or tamper with sensitive data.
