@@ -44,6 +44,10 @@ All outputs are generated based on the code repository you provide.
 
 ## Installation
 
+You should have ollama installed with a model deployed in it first then you can follow below steps.
+
+However, if you'd like to use AttackImaginator with diffferent LLM provider platforms, you're always welcome to send a PR.
+
 ```
 $ git clone https://github.com/nuryslyrt/AttackImaginator.git
 $ cd AttackImaginator
