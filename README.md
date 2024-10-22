@@ -22,7 +22,11 @@
 
 # AttackImaginator
 
-Welcome to **AttackImaginator**—a project crafted entirely for educational purposes! Discover how you can leverage LLMs to enhance your day-to-day work quality and skills, instead of relying blindly on their output.
+Welcome to **AttackImaginator**—a project crafted entirely for educational purposes! 
+
+Discover how you can leverage LLMs to enhance your day-to-day work quality and skills, instead of relying blindly on their output.
+
+Although, it's just another ***scrappy*** pentest tool! 
 
 ## What Does It Do?
 
