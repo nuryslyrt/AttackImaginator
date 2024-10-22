@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/nuryslyrt/AttackImaginator/refs/heads/main/attackimaginator.png" alt="subfinder" width="500px">
+  <img src="https://raw.githubusercontent.com/nuryslyrt/AttackImaginator/refs/heads/main/attackimaginator.png" alt="subfinder" width="400px">
   <br>
 </h1>
 
