@@ -41,6 +41,8 @@ All outputs are generated based on the code repository you provide.
 ## Installation
 
 ```
+$ git clone https://github.com/nuryslyrt/AttackImaginator.git
+$ cd AttackImaginator
 $ python3 -m venv .venv
 $ source .venv/bin/activate
 $ python3 -m pip install -r requirements.txt
